@@ -20,6 +20,7 @@ export_ejson_secrets() {
 
   if [ $return_status -eq 0 ]; then
     source /tmp/ejson_env.sh
+    cp /tmp/ejson_env.sh ${APP_DIR}/export
     rm /tmp/ejson_env.sh
   else
     # re-execute decryption to get failure message then display
