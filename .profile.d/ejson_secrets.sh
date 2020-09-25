@@ -21,6 +21,8 @@ export_ejson_secrets() {
   if [ $return_status -eq 0 ]; then
     source /tmp/ejson_env.sh
     cp /tmp/ejson_env.sh ${APP_DIR}/export
+    [ ! -d "${APP_DIR}/bin" ] && mkdir ${APP_DIR}/bin
+    cp -v /tmp/ejson_env.sh ${APP_DIR}/bin/export
     rm /tmp/ejson_env.sh
   else
     # re-execute decryption to get failure message then display
